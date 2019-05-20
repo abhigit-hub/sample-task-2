@@ -23,5 +23,6 @@
     <string name="HASHTAG">#%1$s</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="retry">RETRY</string>
+    <string name="preparing_data">Preparing Data</string>
 
 </resources>

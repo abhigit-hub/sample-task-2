@@ -1,6 +1,5 @@
 package com.example.sampletask2.ui.main.home.posts
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +9,6 @@ import com.example.sampletask2.databinding.ItemViewEmptyBinding
 import com.example.sampletask2.databinding.ItemViewPostCollectionBinding
 import com.example.sampletask2.databinding.ItemViewPostStoryBinding
 import com.example.sampletask2.ui.base.BaseViewHolder
-import com.example.sampletask2.utils.display.Toaster
 import java.util.*
 
 class PostAdapter(private val list: ArrayList<Any>) : RecyclerView.Adapter<BaseViewHolder>() {
@@ -19,13 +17,10 @@ class PostAdapter(private val list: ArrayList<Any>) : RecyclerView.Adapter<BaseV
         const val VIEW_TYPE_COLLECTION = 0
         const val VIEW_TYPE_STORY = 1
         const val VIEW_TYPE_EMPTY = 2
-
-        lateinit var context: Context
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        context = parent.context
-        return when (viewType) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
+        when (viewType) {
             VIEW_TYPE_STORY -> PostItemStoryViewHolder(
                 ItemViewPostStoryBinding.inflate(
                     LayoutInflater.from(
@@ -48,12 +43,10 @@ class PostAdapter(private val list: ArrayList<Any>) : RecyclerView.Adapter<BaseV
                 )
             )
         }
-    }
 
 
     fun appendData(list: List<Any>) {
         this.list.addAll(list)
-        Toaster.show(context, list.size.toString())
         notifyDataSetChanged()
     }
 

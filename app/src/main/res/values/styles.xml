@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppThemeFullscreen" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
@@ -85,8 +86,9 @@
         <item name="android:fontFamily">@font/googlesans_bold</item>
     </style>
 
-    <style name="AppTheme.Tab" parent="TextAppearance.MaterialComponents.Tab"/>
-    <style name="AppTheme.Chip" parent="TextAppearance.MaterialComponents.Chip"/>
+    <style name="AppTheme.Tab" parent="TextAppearance.MaterialComponents.Tab" />
+
+    <style name="AppTheme.Chip" parent="TextAppearance.MaterialComponents.Chip" />
 
     <style name="AppTheme.Toolbar" parent="Base.Theme.MaterialComponents.Light.DarkActionBar">
         <item name="android:layout_width">match_parent</item>

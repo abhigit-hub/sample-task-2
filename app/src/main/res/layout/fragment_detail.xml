@@ -1,59 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
-                name="viewModel"
-                type="com.example.sampletask2.ui.main.MainSharedViewModel"/>
+            name="viewModel"
+            type="com.example.sampletask2.ui.main.MainSharedViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivHeroImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/placeholder"
-                app:loadImage="@{viewModel.getSelectedStory().heroUrl}"
-                app:layout_constraintDimensionRatio="H,16:9"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+            android:id="@+id/ivHeroImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{viewModel.getSelectedStory().heroUrl}"
+            app:srcCompat="@drawable/placeholder" />
 
         <TextView
-                android:id="@+id/tvHeadline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="@{viewModel.selectedStory.headline}"
-                android:textAppearance="@style/AppTheme.Headline5"
-                android:textAllCaps="true"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/ivHeroImage"
-                android:layout_marginTop="32dp"/>
+            android:id="@+id/tvHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{viewModel.selectedStory.headline}"
+            android:textAllCaps="true"
+            android:textAppearance="@style/AppTheme.Headline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivHeroImage" />
 
         <TextView
-                android:id="@+id/tvSummary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="@{viewModel.selectedStory.summary}"
-                android:textAppearance="@style/AppTheme.Caption"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHeadline" android:layout_marginTop="32dp"
-                android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline"
-                app:layout_constraintVertical_bias="0.0"/>
+            android:id="@+id/tvSummary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{viewModel.selectedStory.summary}"
+            android:textAppearance="@style/AppTheme.Caption"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeadline"
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.Guideline
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/guideline"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_end="100dp"/>
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="100dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

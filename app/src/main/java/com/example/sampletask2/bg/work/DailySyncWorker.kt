@@ -39,17 +39,20 @@ class DailySyncWorker(context: Context, workerParams: WorkerParameters) :
     }
 
     override fun createWork(): Single<Result> {
-        postRepository.init(compositeDisposable)
-        return Single.create {
-            val disposable = postRepository.refreshStaleData()?.subscribe({
 
-            }, {
-                Result.failure()
-            }, {
-                Result.success()
-            })
-            disposable?.let { compositeDisposable.add(it) }
-        }
+        val isFetching = postRepository.init(compositeDisposable)
+        return if (!isFetching)
+            Single.create {
+                val disposable = postRepository.refreshStaleData()?.subscribe({
+
+                }, {
+                    Result.failure()
+                }, {
+                    Result.success()
+                })
+                disposable?.let { compositeDisposable.add(it) }
+            }
+        else Single.create { Result.failure() }
     }
 
     override fun onStopped() {

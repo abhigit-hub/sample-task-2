@@ -68,8 +68,9 @@ class PostRepository constructor(
     fun getTabNameLiveData(): LiveData<String> = tabNameLiveData
     fun getSelectedPostLiveData(): LiveData<StoryEntity> = selectedPostLiveData
 
-    fun init(compositeDisposable: CompositeDisposable) {
+    fun init(compositeDisposable: CompositeDisposable): Boolean {
         this.compositeDisposable = compositeDisposable
+        return fetchingData.get()
     }
 
     fun initiateDataSetUp() {
@@ -85,7 +86,6 @@ class PostRepository constructor(
     * */
     private fun fetchData() {
         if (!fetchingData.getAndSet(true)) {
-            dataSetupStatusLiveData.postValue(Resource.loading(R.string.fetching_data))
             when {
                 //1. Do Nothing
                 FLAG_POSTS_SETUP -> {
@@ -94,7 +94,6 @@ class PostRepository constructor(
 
                 //2. If offline data is available, load from DB
                 userPreferences.isDataConfigured() -> {
-                    dataSetupStatusLiveData.postValue(Resource.loading(R.string.fetching_data))
                     compositeDisposable.add(fetchDataFromDb().subscribe({ list ->
                         FLAG_POSTS_SETUP = true
                         list?.let { postsLiveData.postValue(list) }
@@ -176,8 +175,8 @@ class PostRepository constructor(
                 subscriptionCounter += 1
                 if (subscriptionCounter == collectionCounter) {
                     fetchingData.set(false)
-                    fetchData()
                     userPreferences.setDataConfigured(true)
+                    fetchData()
                     dataSetupStatusLiveData.postValue(Resource.success(R.string.data_setup_complete))
                 }
             })

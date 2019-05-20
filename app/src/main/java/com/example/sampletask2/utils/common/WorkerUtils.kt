@@ -12,7 +12,7 @@ object WorkerUtils {
                 .setRequiredNetworkType(NetworkType.CONNECTED)
                 .build()
 
-            val request = PeriodicWorkRequest.Builder(DailySyncWorker::class.java, 24, TimeUnit.HOURS)
+            val request = PeriodicWorkRequest.Builder(DailySyncWorker::class.java, 1, TimeUnit.DAYS)
                 .addTag(DailySyncWorker.TAG)
                 .setConstraints(constraints)
                 .build()

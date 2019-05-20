@@ -27,7 +27,8 @@ class MainSharedViewModel(
     private val loading: LiveData<Boolean> = Transformations
         .map(postRepository.getDataSetUpStatusLiveData()) { resource ->
             resource?.let {
-                if (it.status == Status.LOADING || it.status == Status.ERROR) messageStringId.postValue(it)
+                if (it.status == Status.LOADING || it.status == Status.ERROR)
+                    messageStringId.postValue(it)
                 else if (it.status == Status.INTERNET_LOST) snackbarMessage.postValue(it)
 
                 return@map it.status == Status.LOADING
