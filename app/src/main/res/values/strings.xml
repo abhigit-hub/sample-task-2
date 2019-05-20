@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Sample App</string>
+
+    <!--Network-->
+    <string name="network_connection_error">Internet connection lost, please retry again</string>
+    <string name="network_default_error">Something wrong happened, please retry again</string>
+    <string name="network_internal_error">Our systems got an error, please retry again</string>
+    <string name="network_server_not_available">Our services are under maintenance, please retry after some time
+    </string>
+    <string name="server_connection_error">Not able to connect, please retry again</string>
+    <string name="network_login_again">Please log in again</string>
+
+
+    <!--Data Setup Related-->
+    <string name="data_setup_complete">Data Setup Complete</string>
+    <string name="fetching_data">Fetching Data</string>
+    <string name="no_items">No items</string>
+
+    <!--Random Texts-->
+    <string name="home">Home</string>
+    <string name="premium">PREMIUM</string>
+    <string name="HOME">Home</string>
+    <string name="HASHTAG">#%1$s</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="retry">RETRY</string>
+
+</resources>
