@@ -1,5 +1,5 @@
 # sample-task-2
-A sample app to show post list with heterogeneous elements. Built with Kotlin, MVVM, RxJava, Dagger2, Architecture Components, Unit Tests etc.
+A sample app to show post list with heterogeneous elements. Built with Kotlin, MVVM, RxJava, Dagger2, Architecture Components, Unit Tests etc. (Interview Test)
 App also supports data persistency for offline use case. 
 
 ## Topics
