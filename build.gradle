@@ -70,5 +70,8 @@ ext {
     // Tests
     junit_version = '4.12'
     espresso_version = '3.1.0'
-    mockito_version = '2.7.1'
+    mockito_version = '2.4.0'
+    powermock_version = '1.7.0RC2'
+    test_runner_version = '1.1.1'
+    core_testing_version = '1.1.1'
 }

@@ -45,7 +45,7 @@ class MainSharedViewModel(
 
     fun onViewCreated() {
         postRepository.init(compositeDisposable)
-        postRepository.initiateDataSetUp()
+        postRepository.fetchDataSet()
         WorkerUtils.setUpWork()
     }
 

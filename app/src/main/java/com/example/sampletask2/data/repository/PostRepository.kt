@@ -73,18 +73,12 @@ class PostRepository constructor(
         return fetchingData.get()
     }
 
-    fun initiateDataSetUp() {
-        if (this.compositeDisposable != null) {
-            fetchData()
-        }
-    }
-
     /*
     * Control logic method to check what state the app is in and based on that
     * decide the source to retrieve data from.
     *
     * */
-    private fun fetchData() {
+    fun fetchDataSet() {
         if (!fetchingData.getAndSet(true)) {
             when {
                 //1. Do Nothing
@@ -176,7 +170,7 @@ class PostRepository constructor(
                 if (subscriptionCounter == collectionCounter) {
                     fetchingData.set(false)
                     userPreferences.setDataConfigured(true)
-                    fetchData()
+                    fetchDataSet()
                     dataSetupStatusLiveData.postValue(Resource.success(R.string.data_setup_complete))
                 }
             })
@@ -240,7 +234,7 @@ class PostRepository constructor(
     * */
     fun retryFetchingData() {
         if (!userPreferences.isDataConfigured())
-            initiateDataSetUp()
+            fetchDataSet()
     }
 
 

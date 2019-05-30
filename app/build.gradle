@@ -15,7 +15,7 @@ android {
         targetSdkVersion rootProject.ext.target_sdk_version
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
 
@@ -103,10 +103,14 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
     testAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+    testImplementation "android.arch.core:core-testing:$core_testing_version"
 
     // UI Testing
-    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.powermock:powermock-core:$powermock_version"
+    testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
+    testImplementation "org.powermock:powermock-api-mockito2:$powermock_version"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 }
